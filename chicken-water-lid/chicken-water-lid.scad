@@ -3,7 +3,7 @@
 // and the lip rises from its edge.
 
 // --- Lid ---
-lid_diameter = 250;        // mm, outer diameter
+lid_inner_diameter = 245;   // mm, measured inside the lip walls
 top_thickness = 3;          // mm, the flat plate
 
 // --- Lip (wall rising from the edge) ---
@@ -11,13 +11,13 @@ lip_thickness = 2;          // mm, radial
 lip_height = 10;            // mm, measured above the top plate
 
 // --- Ribs (stiffen the top plate, rise from the same side as the lip) ---
-flat_margin = 10;           // mm, rib-free flat band between the lip's inner face and the outer ring
+flat_margin = 15;           // mm, rib-free flat band between the lip's inner face and the outer ring
 rib_thickness = 1.6;        // mm, width of every rib
 rib_height = 6;             // mm, measured above the top plate
 radial_rib_count = 8;       // star pattern, centre to outer ring
 
 // --- Cable slot (cuts through everything, from the edge inwards) ---
-cable_slot_diameter = 8;   // mm, slot width; also the diameter of its rounded inner end
+cable_slot_diameter = 6;   // mm, slot width; also the diameter of its rounded inner end
 
 // ============================================================
 // Parameters end here. Nothing below this line is meant to be edited.
@@ -25,11 +25,12 @@ cable_slot_diameter = 8;   // mm, slot width; also the diameter of its rounded i
 
 $fn = 256;  // high accuracy; slow renders are fine
 
-lid_radius = lid_diameter / 2;
+inner_radius = lid_inner_diameter / 2;
+lid_radius = inner_radius + lip_thickness;
 overlap = 0.01;             // avoids coincident faces in the union
 
 // Outer ring's outer face sits flat_margin in from the lip's inner face.
-outer_ring_radius = lid_radius - lip_thickness - flat_margin - rib_thickness / 2;
+outer_ring_radius = inner_radius - flat_margin - rib_thickness / 2;
 inner_ring_radius = outer_ring_radius / 2;
 
 module ring(r) {
@@ -42,7 +43,7 @@ module ring(r) {
 
 // The slot runs in from the edge to the inner edge of the flat margin, then
 // ends in a semicircle. It sits halfway between two radial ribs.
-slot_end_radius = lid_radius - lip_thickness - flat_margin;
+slot_end_radius = inner_radius - flat_margin;
 
 module cable_slot() {
   rotate(180 / radial_rib_count)
@@ -71,7 +72,7 @@ difference() {
       difference() {
         cylinder(r = lid_radius, h = lip_height + overlap);
         translate([0, 0, -overlap])
-          cylinder(r = lid_radius - lip_thickness, h = lip_height + 3 * overlap);
+          cylinder(r = inner_radius, h = lip_height + 3 * overlap);
       }
   }
   cable_slot();

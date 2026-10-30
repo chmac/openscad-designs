@@ -20,7 +20,7 @@ openscad -o stl/chicken-water-lid.stl chicken-water-lid.scad
 
 | Parameter | Meaning |
 | --- | --- |
-| `lid_diameter` | Outer diameter in mm |
+| `lid_inner_diameter` | Diameter in mm, measured inside the lip walls (the outside is this plus twice `lip_thickness`) |
 | `top_thickness` | Thickness of the flat top plate in mm |
 | `lip_thickness` | Radial thickness of the lip wall in mm |
 | `lip_height` | Height of the lip above the top plate in mm |
