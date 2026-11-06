@@ -38,7 +38,7 @@ a derivative of a CC BY-SA design, include the attribution and license when you 
 
 - Renamed from `enchufe.scad`.
 - Removed the rectangular reinforcement block on top of the body.
-- The two larger holes are enlarged from 7 mm to 10 mm diameter and moved from y = ±10 to y = ±9.5, so the centres are 19 mm apart (the CEE 7/4 pin spacing).
+- The two larger holes are enlarged from 7 mm to 11 mm diameter and moved from y = ±10 to y = ±9.5, so the centres are 19 mm apart (the CEE 7/4 pin spacing).
 - Centre hole is now 3 mm diameter with a 45° chamfer (7 mm across) on the socket face, replacing the 3.5 mm hole and 6 mm counterbore.
 - Back wall (the face the holes go through) is 2.8 mm thick, with a 9 mm round block on the back around the centre hole making it 3.75 mm there.
 - Removed the four round discs at the corners of the front plate (anti-lift ears for ABS).

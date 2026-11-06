@@ -29,9 +29,9 @@ difference(){
         }
         // PERFORACIONES CENTRALES
         translate([0,9.5,0]) // 19mm between centres, CEE 7/4 pin spacing
-                cylinder(r=10/2, $fn=60, h=40);
+                cylinder(r=11/2, $fn=60, h=40);
         translate([0,-9.5,0])
-                cylinder(r=10/2, $fn=60, h=40);
+                cylinder(r=11/2, $fn=60, h=40);
         translate([0,0,0])
                 cylinder(r=3/2, $fn=60, h=40);
         // 45 degree chamfer on the socket face (z=15.6), 7mm across at the face
