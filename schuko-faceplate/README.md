@@ -13,6 +13,27 @@ by 3Dmatic, published on Thingiverse and licensed under
   <https://www.thingiverse.com/thing:954926/files>, renamed. It was added to this
   repo unmodified; changes made after that are listed below and in git history.
 
+## Layout
+
+- `schuko_faceplate.scad` – the model; open this in OpenSCAD
+- `stl/` – exported mesh for slicing (`make`)
+- `dist/` – single-file bundle for uploading to sites that take one `.scad` (`make dist`)
+
+## Dependencies
+
+- [OpenSCAD](https://openscad.org) – `brew install --cask openscad`
+- [uv](https://docs.astral.sh/uv/) – `brew install uv`. Used to run
+  [openscad-packer](https://pypi.org/project/openscad-packer/) via `uvx`, which
+  bundles any `lib/` files into one `.scad` for publishing. Nothing else to install.
+
+## Usage
+
+Open `schuko_faceplate.scad` in OpenSCAD, F5 to preview, F6 to render, then export STL.
+Or run `make` to export `stl/schuko_faceplate.stl` from the CLI.
+
+To publish, run `make dist` and upload `dist/schuko_faceplate.scad`. Because this is
+a derivative of a CC BY-SA design, include the attribution and license when you do.
+
 ## Changes from the original
 
 - Renamed from `enchufe.scad`.
@@ -24,6 +45,7 @@ by 3Dmatic, published on Thingiverse and licensed under
 - Outer body is a smooth circle (`$fn=80`) instead of 16-sided.
 - Socket cavity is 17.5 mm deep from the front face (was about 19.9 mm), matching the CEE 7/3 recess depth. The body is shortened to match: 2.8 mm back wall plus the 9 mm block, 21.25 mm overall. The earth-slot notches and the internal tabs are moved or shortened to follow.
 - Front plate is now flat on the front with no step behind it, and has a 2 mm thick rim running back to 10 mm in front of the back of the centre block.
+- Face is 80 mm square overall (was 57 mm).
 
 ## License
 
